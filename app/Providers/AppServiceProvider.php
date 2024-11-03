@@ -20,13 +20,20 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->mapApiRoutes();
+        $this->mapApiRoutesPost();
+        $this->mapApiRoutesGet();
     }
 
-    protected function mapApiRoutes()
+    protected function mapApiRoutesPost()
     {
         Route::middleware('api')
             ->prefix('post')
+            ->group(base_path('routes/api.php'));
+    }
+    protected function mapApiRoutesGet()
+    {
+        Route::middleware('api')
+            ->prefix('get')
             ->group(base_path('routes/api.php'));
     }
 }

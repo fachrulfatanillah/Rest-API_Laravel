@@ -24,4 +24,10 @@ class UserController extends Controller
 
         return response()->json(['message' => 'User created successfully', 'user' => $user], 201);
     }
+    public function get()
+    {
+        $users = User::all();
+
+        return response()->json($users);
+    }
 }

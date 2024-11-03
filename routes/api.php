@@ -7,3 +7,7 @@ use App\Http\Controllers\UserController;
 Route::middleware('api')->group(function () {
     Route::post('/users', [UserController::class, 'create']);
 });
+
+Route::middleware('api')->group(function () {
+    Route::get('/users', [UserController::class, 'get']);
+});
